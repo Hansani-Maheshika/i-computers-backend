@@ -2,9 +2,9 @@ import express from 'express'//import express module from express package
 
 import mongoose from 'mongoose'//import mongoose module from mongoose package
 
-import Student from './models/student.js'//import student model from models/student.js file
+////import student model from models/student.js file
 
-import studentRouter from './routers/studentRouter.js'//import studentRouter from routers/studentRouter.js file
+//import studentRouter from './routers/studentRouter.js'//import studentRouter from routers/studentRouter.js file
 
 import userRouter from './routers/userRouter.js'//import userRouter from routers/userRouter.js file
 import productRouter from './routers/productRouter.js'
