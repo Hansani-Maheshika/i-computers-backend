@@ -89,7 +89,7 @@ export async function loginUser(req,res){//use async await to login a user
                     isEmailVerified : user.isEmailVerified,
                     image : user.image
                 },//using the above data to generate a token for the user after login
-                "secretkey9911111",//secret key to sign the token, it should be kept secret and not shared with anyone, we can use environment variable to store the secret key
+                "secretkey99",//secret key to sign the token, it should be kept secret and not shared with anyone, we can use environment variable to store the secret key
             )
 
             res.json({message : "login successful", token : token})//send response to the client with the token

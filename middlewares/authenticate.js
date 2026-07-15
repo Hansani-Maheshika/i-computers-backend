@@ -14,7 +14,7 @@ export default function authenticate(req, res , next){
              //console.log(token)
 
              //Now decrypt the token
-             jwt.verify(token , "secretkey9911111",//secret key is wanted to decode
+             jwt.verify(token , "secretkey99",//secret key is wanted to decode
                 (err , decoded)=>{//get err and decoded value
                     console.log(decoded)
 
