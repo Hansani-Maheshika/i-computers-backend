@@ -10,8 +10,19 @@ import userRouter from './routers/userRouter.js'//import userRouter from routers
 import productRouter from './routers/productRouter.js'
 
 import authenticate from './middlewares/authenticate.js'
-//First step to connect project with database
-const mongoDBURL = "mongodb://Hansani:hdhm123@ac-g0wvtjq-shard-00-00.c8ttl8a.mongodb.net:27017,ac-g0wvtjq-shard-00-01.c8ttl8a.mongodb.net:27017,ac-g0wvtjq-shard-00-02.c8ttl8a.mongodb.net:27017/dev?ssl=true&replicaSet=atlas-ejrxv8-shard-0&authSource=admin&appName=Cluster0"
+
+import dotenv from "dotenv"
+
+
+//First step to connect project with database,Git can see URL so put in .env file
+//const mongoDBURL = "mongodb://Hansani:hdhm123@ac-g0wvtjq-shard-00-00.c8ttl8a.mongodb.net:27017,ac-g0wvtjq-shard-00-01.c8ttl8a.mongodb.net:27017,ac-g0wvtjq-shard-00-02.c8ttl8a.mongodb.net:27017/dev?ssl=true&replicaSet=atlas-ejrxv8-shard-0&authSource=admin&appName=Cluster0"
+
+dotenv.config()//when runing it,loading all variables in .env file
+
+
+const mongoDBURL = process.env.MONGO_URL//safe the URL
+
+
 
 mongoose.connect(mongoDBURL).then(
     ()=>{
@@ -33,7 +44,7 @@ app.use('/users' ,userRouter)//use userRouter for all requests starting with /us
 
 app.use("/products" , productRouter)
 
-app.use('/students',studentRouter)//use studentRouter for all requests starting with /students
+//app.use('/students',studentRouter)//use studentRouter for all requests starting with /students
 
 
 //register (note down) the work from get request

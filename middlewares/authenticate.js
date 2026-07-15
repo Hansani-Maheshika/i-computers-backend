@@ -1,5 +1,8 @@
 import jwt from "jsonwebtoken"
 
+
+import dotenv from "dotenv"
+
 export default function authenticate(req, res , next){
 
         // console.log("Middleware executed")
@@ -14,7 +17,7 @@ export default function authenticate(req, res , next){
              //console.log(token)
 
              //Now decrypt the token
-             jwt.verify(token , "secretkey99",//secret key is wanted to decode
+             jwt.verify(token , process.env.JWT_SECRET_KEY,//secret key is wanted to decode
                 (err , decoded)=>{//get err and decoded value
                     console.log(decoded)
 

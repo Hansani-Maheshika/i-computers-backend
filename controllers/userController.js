@@ -4,6 +4,8 @@ import bcrypt from "bcrypt"//import bcryptjs module to hash the password before 
 
 import jwt from "jsonwebtoken"//import jsonwebtoken module to generate a token for the user after login
 
+import dotenv from "dotenv"
+
 export async function createUser(req,res){//use async await to create a new user
     try {
         
@@ -89,7 +91,7 @@ export async function loginUser(req,res){//use async await to login a user
                     isEmailVerified : user.isEmailVerified,
                     image : user.image
                 },//using the above data to generate a token for the user after login
-                "secretkey99",//secret key to sign the token, it should be kept secret and not shared with anyone, we can use environment variable to store the secret key
+                process.env.JWT_SECRET_KEYS,//secret key to sign the token, it should be kept secret and not shared with anyone, we can use environment variable to store the secret key
             )
 
             res.json({message : "login successful", token : token})//send response to the client with the token
